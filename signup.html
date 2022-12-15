@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<link rel="stylesheet" type="text/css" href="signup.css">
+		<link rel="stylesheet" type="text/css" href="signup.js">
+		
+
+		<meta charset="utf-8" /> 
+	<title>회원가입_page</title>
+	
+ 
+
+	<script>
+		// show 함수
+		function show() {
+			//var 는 변수로 자료형은 자동으로 선택된다 var i =1 -> 정수 자료형
+			//단 입력받은 내용을 var로 저장하면 무조건 string 자료형이다.
+			var form = document.myform; //입력양식을 가져옴.
+			var id = form["id"].value;
+			//name="id"와 일치하는 입력양식에 입력된 텍스트를 가져온다
+			var name = form["name"].value;
+			var gender = form["gender"].value;
+			var call = form["tel1"].value + form["tel2"].value + form["tel3"].value;
+			var address = form["address"].value;
+			var hobby = "";
+			for (var i = 1; i <= 4; i++) {
+			//	if (form["hobby"+i].checked)
+			//		hobby += form["hobby"+i].value + " ";
+			}
+			var str = id + "\n" + name + "\n" + gender + "\n";
+			str+= call + "\n" + address + "\n" + hobby;
+			alert(str);//브라우저 상단에 알림
+		}
+	</script>
+
+	</head>
+
+
+
+
+	<body>
+      
+		<h1 style="color:rgb(14, 74, 134)" > 회원가입 <br></h1>
+		<!-- form은 입력 양식을 서버로 보내는 태그로 action = "주소" 처럼 스크립트 주소가 필요한데 생략 -->
+		<!-- input태그= 입력 양식 태그, type = 종류(버튼/텍스트) value = 입력값 또는 나타나는 텍스트, name = 서버로 전달되는 이름-->
+		<form method="post" name="myform">
+		<!-- table=표 tr이 각 행들이고, 하나의 행에 여러 열(td)들을 입력해준다. -->
+		<table border="1" bgcolor="white" bordercolor="black">
+			<tr>
+				<td>* 아이디 :</td>
+				<!-- maxlength는 최대 입력할 수 있는 길이, size 입력 양식 자체 크기 -->
+				<td><input type="text" name="id" maxlength="12" size="15" /> : 최대12자리까지 입력하세요.</td>
+			</tr>
+			<tr>
+				<td>* 이름 :</td>
+				<td><input type="text" name="name" maxlength="12" size="15" /></td>
+			</tr>
+			<tr>
+				<td>* 비밀번호 :</td>
+				<td><input type="password" name="pass" maxlength="10" size="15" /> : 최대 10자리까지 입력하세요</td>
+			</tr>
+			<tr>
+				<td>👧성별👦 :</td>
+				<!-- radio 버튼 타입은 체크박스 타입으로 같은 name 공유하는 것 끼리는 중복선택이 안된다. -->
+				<td><input type="radio" name="gender" value="male" checked />남
+					<input type="radio" name="gender" value="female" />여</td>
+
+
+                    <tr>
+                <td>🎂생일🎂 :</td>
+                        <td align="left">&nbsp; 
+                        <input type="text" name="year" size="5">년
+                            &nbsp;&nbsp; <select name="month">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+
+                        </select> 월 &nbsp;&nbsp; 
+                        <select name="day">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                        </select> 일
+
+            
+                        </td>
+                 </tr>
+
+
+			<tr>
+				<td>휴대전화📲:</td>
+				<td>
+					<!-- select = 여러개의 목록에서 몇가지 선택할 수 있는 양식 -->
+					<!-- 복수 선택은 <select multiple >  -->
+					<select name="tel1" >
+						<option value="010">010</option>
+						<option value="011">011</option>
+						<option value="018">018</option>
+						<option value="070">070</option>
+					</select>
+					- <input type="text" name="tel2" size="4" maxlength="4" />
+					- <input type="text" name="tel3" size="4" maxlength="4" />
+				</td>
+			</tr>
+			<tr>
+				<td>주 소 🏙️:</td>
+				<td><input type="text" name="address" size="40"/></td>
+			</tr>
+			<tr>
+				<td>취 미 ✅:</td>
+                    <td><input type="text" name="" size="40" /></td>
+				</td>
+			</tr>
+				<td> 자기소개 :</td>
+				<td><textarea name="self" rows="5" cols="60"></textarea></td>
+			</tr>
+		</table>
+		<!-- 자바스크립트에서 작성한 것 실행 -->
+		<br><input type="button" value="회원 가입" onclick="show();">
+		<input type="reset" value="다시 작성">
+	</form>
+  
+	</body>
+</html>
